@@ -8,9 +8,19 @@ def index():
   return render_template("index.html")
 
 
+@app.route('/productos')
+def productos():
+  return render_template("productos.html")
+
+
 @app.route('/equipo')
 def equipo():
   return render_template("equipo.html")
+
+
+@app.route('/contacto')
+def contacto():
+  return render_template("contacto.html")
 
 
 if __name__ == "__main__":
