@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Equipo de trabajo</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilo.css') }}">
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="/">Servicios</a></li>
+          <li><a href="/productos">Productos</a></li>
+          <li><a href="/equipo">Equipo</a></li>
+          <li><a href="/contacto">Contáctenos</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="container">
+
+      <div class="row row-cols-3 row-cols-md-3 g-3 p-6">
+        
+        <div class="col">
+          <div class="card" style="width: 12rem;">
+            <img src="{{ url_for('static', filename='img/foto01.webp')}}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Erney Perez</h5>
+              <p class="card-text">
+                Un mundo de cambios en la programación.
+              </p>
+              <a href="#" class="btn btn-primary">Contacto</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col">
+          <div class="card" style="width: 12rem;">
+            <img src="{{ url_for('static', filename='img/foto02.webp')}}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Cristina Rojas</h5>
+              <p class="card-text">
+                Llegó la creatividad.
+              </p>
+              <a href="#" class="btn btn-primary">Contacto</a>
+            </div>
+          </div>
+        </div>
+      
+        <div class="col">
+          <div class="card" style="width: 12rem;">
+            <img src="{{ url_for('static', filename='img/foto01.webp')}}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Ramiro Blanco</h5>
+              <p class="card-text">
+                Cambio a través de las herramientas.
+              </p>
+              <a href="#" class="btn btn-primary">Contacto</a>
+            </div>
+          </div>
+        </div>
+      
+      </div>
+      
+    </main>
+
+    <footer>
+      Talento Tech 2024
+    </footer>
+  </body>
+</html>
