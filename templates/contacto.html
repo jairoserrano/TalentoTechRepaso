@@ -1,34 +1,6 @@
-<!DOCTYPE html>
-<html>
+{% extends 'base.html' %}
 
-<head>
-    <title>Mi primera web con Bootstrap</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilo.css') }}">
-</head>
-
-<body>
-    <div class="container">
-
-        <main>
-
-            <header
-                class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 ms-4 me-3 border-bottom">
-                <div class="col-md-3 mb-2 mb-md-0">
-                    <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
-                        <img src="{{ url_for('static', filename='img/logo.png') }}" width="72px">
-                    </a>
-                </div>
-
-                <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-                    <li><a href="/" class="nav-link px-2 link-secondary">Inicio</a></li>
-                    <li><a href="/productos" class="nav-link px-2">Productos</a></li>
-                    <li><a href="/equipo" class="nav-link px-2">Equipo</a></li>
-                    <li><a href="/contacto" class="nav-link px-2">Contáctenos</a></li>
-                </ul>
-
-            </header>
+{% block content %}
 
             <h1>Contáctenos</h1>
 
@@ -87,19 +59,9 @@
 
             <span id="mensaje"></span>
 
-        </main>
+{% endblock %}
 
-        <footer class="pt-5 my-5 text-body-secondary border-top">
-            Mi sitio web con Bootstrap v1
-        </footer>
-
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
-    <script src="{{ url_for('static', filename='js/jquery-3.7.1.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/libreria.js') }}"></script>
-</body>
-
-</html>
+{% block javascript %}
+<script src="{{ url_for('static', filename='js/jquery-3.7.1.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/libreria.js') }}"></script>
+{% endblock %}

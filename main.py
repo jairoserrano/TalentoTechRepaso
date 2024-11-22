@@ -8,6 +8,11 @@ def index():
   return render_template("index.html")
 
 
+@app.route('/ofertas')
+def ofertas():
+  return render_template("ofertas.html")
+
+
 @app.route('/productos')
 def productos():
   return render_template("productos.html")
