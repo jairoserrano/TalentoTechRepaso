@@ -1,18 +1,15 @@
 <div class="ms-4">
-    <h2>Productos</h2>
+    <h2>Productos Destacados</h2>
     <p>Productos disponibles para nuestra preciada clientela.</p>
-    <input type="button" class="btn btn-primary" value="Novedades" onclick="cargar('productos-nuevos')">
-    <input type="button" class="btn btn-primary" value="Destacados" onclick="cargar('productos-destacados')">
+    <input type="button" class="btn btn-primary" value="Regresar" onclick="cargar('productos')">
 </div>
-
-
 
 <div class="row row-cols-1 row-cols-md-3 g-4 p-4">
     <div class="col">
         <div class="card">
             <img src="{{ url_for('static', filename='img/estaticos.webp') }}" class="card-img-top" alt="...">
             <div class="card-body">
-                <h5 class="card-title">Desarrollos Estáticos</h5>
+                <h5 class="card-title">Producto destacado uno</h5>
                 <p class="card-text">
                     El desarrollo estático garantiza estructuras
                     sólidas y seguras, enfocándose en la estabilidad
@@ -25,7 +22,7 @@
         <div class="card">
             <img src="{{ url_for('static', filename='img/dinamicos.webp') }}" class="card-img-top" alt="...">
             <div class="card-body">
-                <h5 class="card-title">Desarrollos Dinámicos</h5>
+                <h5 class="card-title">Producto destacado dos</h5>
                 <p class="card-text">
                     Ofrecemos soluciones flexibles y adaptables, optimizadas
                     para responder eficazmente a entornos cambiantes
@@ -38,7 +35,7 @@
         <div class="card">
             <img src="{{ url_for('static', filename='img/alamedida.webp') }}" class="card-img-top" alt="...">
             <div class="card-body">
-                <h5 class="card-title">Diseño a la Medida</h5>
+                <h5 class="card-title">Producto destacado tres</h5>
                 <p class="card-text">
                     Generamos soluciones personalizadas que se ajustan
                     a las necesidades de cada cliente, garantizando

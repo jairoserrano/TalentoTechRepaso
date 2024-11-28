@@ -37,6 +37,18 @@ def productos():
   return render_template("productos.html", titulo="Productos Destacados")
 
 
+@app.route('/productos-nuevos')
+def productos_nuevos():
+  return render_template("productos_nuevos.html",
+                         titulo="Productos Destacados")
+
+
+@app.route('/productos-destacados')
+def productos_destacados():
+  return render_template("productos_destacados.html",
+                         titulo="Productos Destacados")
+
+
 @app.route('/equipo')
 def equipo():
   return render_template("equipo.html", titulo="El mejor Equipo Humano")
@@ -66,7 +78,7 @@ def guardar_contacto():
     # La información se almacenará en la base de datos
     validacion = "Gracias por contactarnos, pronto nos pondremos en contacto con usted."
 
-  return render_template("gracias.html",
+  return render_template("base.html",
                          titulo="Pronto te contactaremos.",
                          validacion=validacion)
 
