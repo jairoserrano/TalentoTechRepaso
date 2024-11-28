@@ -5,8 +5,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-  return render_template("servicios.html",
-                         titulo="Página de Inicio y Servicios")
+  return render_template("base.html", titulo="Página de Inicio")
 
 
 @app.route('/login', methods=['POST'])
@@ -26,6 +25,11 @@ def login_formulario():
 @app.route('/ofertas')
 def ofertas():
   return render_template("ofertas.html", titulo="Las mejores Ofertas")
+
+
+@app.route('/servicios')
+def servicios():
+  return render_template("servicios.html", titulo="Servicios Destacados")
 
 
 @app.route('/productos')

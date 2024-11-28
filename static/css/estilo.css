@@ -4,6 +4,10 @@ body {
     color: #333;
 }
 
+.menu-activo {
+    font-weight: bold;
+}
+
 .nav-pills .nav-link.active {
     background-color: coral;
 }
