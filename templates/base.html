@@ -108,25 +108,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
-    <script>
-        async function cargar(pagina) {
-
-            const navlinks = document.querySelectorAll('.menu-activo');
-            navlinks.forEach(link => {
-                link.classList.remove('menu-activo');
-            })
-            
-            const equipo = await fetch(`/${pagina}`);
-
-            if (equipo.ok) {
-                document.getElementById("contenido").innerHTML = await equipo.text()
-                document.getElementById(pagina).classList.add("menu-activo");
-            }else{
-                document.getElementById("contenido").innerHTML = "Error al cargar los datos";
-            }
-            
-        }
-    </script>
+    <script src="{{ url_for('static', filename='js/libreria.js') }}"></script>
 </body>
 
 </html>

@@ -24,7 +24,13 @@ def login_formulario():
 
 @app.route('/ofertas')
 def ofertas():
-  return render_template("ofertas.html", titulo="Las mejores Ofertas")
+  # apertura de archivos
+  with open("data/ofertas.txt", "r") as archivo:
+    ofertas = archivo.readlines()
+
+  return render_template("ofertas.html",
+                         titulo="Las mejores Ofertas",
+                         ofertas=ofertas)
 
 
 @app.route('/servicios')

@@ -1,2 +1,5 @@
-aquí estarán las ofertas.<br>
-Listados...
+<ul>
+{% for oferta in ofertas %}
+  <li>{{ oferta }}</li>
+{% endfor %}
+</ul>
