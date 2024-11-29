@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-import json
+import json, os
 
 app = Flask(__name__)
 
@@ -102,6 +102,8 @@ def guardar_contacto():
   zip = request.form.get("inputZip")
   message = request.form.get("inputMessage")
 
+  archivo_csv = "data/contactos.csv"
+
   # Validaciones
   if name == "" or email == "" or address1 == "" or phone == "" or city == "" or state == "":
     validacion = "Error: No hay datos para contacto."
@@ -109,6 +111,15 @@ def guardar_contacto():
     # La información se almacenará en la base de datos
     validacion = "Gracias por contactarnos, pronto nos pondremos en contacto con usted."
 
+    # Crear el archivo si no existe, adicionando la cabecera
+    if os.path.exists(archivo_csv) == False:
+      with open(archivo_csv, "w") as archivo:
+        archivo.write("name,email,address1,address2,phone,city,state,zip,message\n")
+    
+    # Adicionar la información al archivo desde el formulario de contacto.
+    with open(archivo_csv, "a") as archivo:
+      archivo.write(f"{name},{email},{address1},{address2},{phone},{city},{state},{zip},{message}\n")
+    
   return render_template("base.html",
                          titulo="Pronto te contactaremos.",
                          validacion=validacion)

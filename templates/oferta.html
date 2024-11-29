@@ -1,12 +1,35 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Inicio</a></li>
+    <li class="breadcrumb-item active" aria-current="page">
+      <a href="" onclick="cargar('ofertas')">Ofertas</a></li>
+  </ol>
+</nav>
+
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-4">
+
 <div class="col">
   <div class="card" style="width: 300px;">
     <img src="{{ url_for('static', filename='img/' + oferta.imagen) }}" />
     <div class="card-body">
       <h5 class="card-title">
-        <a href="/ofertas/{{ oferta.id }}">{{ oferta.nombre }}</a>
-        <span class="badge bg-primary"">$ {{ oferta.precio }}</span>
+        {{ oferta.descripcion }}
       </h5>
-      <p class="card-description">{{ oferta.descripcion_completa }}</p>
     </div>
   </div>
+</div>
+
+<div class="col">
+  <div class="card" style="width: 300px;">
+    <div class="card-body">
+      <h5 class="card-title">
+        <a href="/ofertas/{{ oferta.id }}">{{ oferta.nombre }}</a>
+      </h5>
+      <span class="fs-3">$ {{ oferta.precio }}</span>
+      <p class="card-description">{{ oferta.descripcion_completa }}</p>
+      <button class="btn btn-primary">Comprar</button>
+    </div>
+  </div>
+</div>
+
 </div>

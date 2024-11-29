@@ -24,8 +24,9 @@ body {
     border: 1px coral;
 }
 
-.nav-link, .fs-6, .card-title, h1, h2 {
+.nav-link, .fs-6, .card-title, h1, h2, a, a#hover {
     color: coral;
+    text-decoration: none;
 }
 
 .nav-link:hover {
