@@ -1,5 +1,18 @@
-<ul>
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-3 p-6">
+
 {% for oferta in ofertas %}
-  <li>{{ oferta }}</li>
+<div class="col">
+  <div class="card" style="width: 250px;">
+    <img src="{{ url_for('static', filename='img/' + oferta.imagen) }}" />
+    <div class="card-body">
+      <h5 class="card-title">
+        <a onclick="cargar('ofertas/{{ oferta.id }}')" href="#">{{ oferta.nombre }}</a>
+        <span class="badge bg-primary"">$ {{ oferta.precio }}</span>
+      </h5>
+      <p class="card-description">{{ oferta.descripcion }}</p>
+    </div>
+  </div>
+</div>
 {% endfor %}
-</ul>
+
+</div>

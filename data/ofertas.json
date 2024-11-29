@@ -1,0 +1,68 @@
+{
+    "ofertas": [
+        {
+            "id": 1,
+            "nombre": "Oferta 1",
+            "descripcion": "Descripción de la oferta 1",
+            "precio": 10.99,
+            "imagen": "oferta01.webp",
+            "descripcion_completa": "Descripción completa de la oferta 1"
+        },
+        {
+            "id": 2,
+            "nombre": "Oferta 2",
+            "descripcion": "Descripción de la oferta 2",
+            "precio": 19.99,
+            "imagen": "oferta02.webp",
+            "descripcion_completa": "Descripción completa de la oferta 2"
+        },
+        {
+            "id": 3,
+            "nombre": "Oferta 3",
+            "descripcion": "Descripción de la oferta 3",
+            "precio": 14.99,
+            "imagen": "oferta03.webp",
+            "descripcion_completa": "Descripción completa de la oferta 3"
+        },
+        {
+            "id": 4,
+            "nombre": "Oferta 4",
+            "descripcion": "Descripción de la oferta 4",
+            "precio": 99.9,
+            "imagen": "oferta04.webp",
+            "descripcion_completa": "Descripción completa de la oferta 4"
+        },
+        {
+            "id": 5,
+            "nombre": "Oferta 5",
+            "descripcion": "Descripción de la oferta 5",
+            "precio": 10.99,
+            "imagen": "oferta01.webp",
+            "descripcion_completa": "Descripción completa de la oferta 5"
+        },
+        {
+            "id": 6,
+            "nombre": "Oferta 6",
+            "descripcion": "Descripción de la oferta 6",
+            "precio": 19.99,
+            "imagen": "oferta02.webp",
+            "descripcion_completa": "Descripción completa de la oferta 6"
+        },
+        {
+            "id": 7,
+            "nombre": "Oferta 7",
+            "descripcion": "Descripción de la oferta 7",
+            "precio": 14.99,
+            "imagen": "oferta03.webp",
+            "descripcion_completa": "Descripción completa de la oferta 7"
+        },
+        {
+            "id": 8,
+            "nombre": "Oferta 8",
+            "descripcion": "Descripción de la oferta 8",
+            "precio": 14.99,
+            "imagen": "oferta04.webp",
+            "descripcion_completa": "Descripción completa de la oferta 8"
+        }
+    ]
+}

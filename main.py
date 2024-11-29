@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+import json
 
 app = Flask(__name__)
 
@@ -24,13 +25,37 @@ def login_formulario():
 
 @app.route('/ofertas')
 def ofertas():
-  # apertura de archivos
-  with open("data/ofertas.txt", "r") as archivo:
-    ofertas = archivo.readlines()
+  # apertura de archivos de texto plano
+  #with open("data/ofertas.txt", "r") as archivo:
+  #  ofertas = archivo.readlines()
+
+  # apertura de archivos con formato json
+  with open("data/ofertas.json", "r") as archivo:
+    data = json.load(archivo)
 
   return render_template("ofertas.html",
                          titulo="Las mejores Ofertas",
-                         ofertas=ofertas)
+                         ofertas=data['ofertas'])
+
+
+@app.route('/ofertas/<id>')
+def abrir_oferta(id):
+  # apertura de archivos de texto plano
+  #with open("data/ofertas.txt", "r") as archivo:
+  #  ofertas = archivo.readlines()
+
+  # apertura de archivos con formato json
+  with open("data/ofertas.json", "r") as archivo:
+    ofertas = json.load(archivo)
+
+  seleccionada = None
+  for oferta in ofertas['ofertas']:
+    if oferta["id"] == int(id):
+      seleccionada = oferta
+
+  return render_template("oferta.html",
+                         titulo="Las mejores Ofertas",
+                         oferta=seleccionada)
 
 
 @app.route('/servicios')

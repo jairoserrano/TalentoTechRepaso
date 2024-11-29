@@ -1,0 +1,12 @@
+<div class="col">
+  <div class="card" style="width: 300px;">
+    <img src="{{ url_for('static', filename='img/' + oferta.imagen) }}" />
+    <div class="card-body">
+      <h5 class="card-title">
+        <a href="/ofertas/{{ oferta.id }}">{{ oferta.nombre }}</a>
+        <span class="badge bg-primary"">$ {{ oferta.precio }}</span>
+      </h5>
+      <p class="card-description">{{ oferta.descripcion_completa }}</p>
+    </div>
+  </div>
+</div>
