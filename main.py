@@ -1,8 +1,15 @@
 from flask import Flask, render_template, request, session
-import json, os
+import json, os, sqlite3
 
 app = Flask(__name__)
 app.secret_key = "yWb2f@QOf77R9hhEX@sFYdt8cc7&LC2S"
+
+
+# 
+def conectar_base_de_datos():
+  conn = sqlite3.connect('data/base_de_datos.sqlite')
+  return conn
+
 
 # Función para revisar si el usuario está autenticado
 def revisar_sesion():
@@ -143,7 +150,18 @@ def guardar_contacto():
     # Adicionar la información al archivo desde el formulario de contacto.
     with open(archivo_csv, "a") as archivo:
       archivo.write(f"{name},{email},{address1},{address2},{phone},{city},{state},{zip},{message}\n")
-    
+  
+  # Almacenar en la base de datos
+  conn = conectar_base_de_datos()
+  cursor = conn.cursor()
+  cursor.execute("""
+                 INSERT INTO contactos 
+                 (name, email, address1, address2, phone, city, state, zip, message)
+                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+                 """, (name, email, address1, address2, phone, city, state, zip, message)
+                 )
+  conn.commit()
+  
   return render_template("base.html",
                          titulo="Pronto te contactaremos.",
                          validacion=validacion)
