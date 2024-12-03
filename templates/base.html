@@ -26,10 +26,12 @@
                     <a id="servicios" onclick="cargar('servicios')" 
                         href="#" class="nav-link px-2">Servicios</a>
                 </li>
+                {% if session.get('usuario') %}
                 <li>
                     <a id="ofertas" onclick="cargar('ofertas')" 
                         href="#" class="nav-link px-2">Ofertas</a>
                 </li>
+                {% endif %}
                 <li>
                     <a id="productos" onclick="cargar('productos')" 
                         href="#" class="nav-link px-2">Productos</a>

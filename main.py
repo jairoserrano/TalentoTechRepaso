@@ -48,6 +48,10 @@ def ofertas():
   # apertura de archivos de texto plano
   #with open("data/ofertas.txt", "r") as archivo:
   #  ofertas = archivo.readlines()
+  
+  # mecanismo de seguridad para revisar si el usuario está autenticado
+  if not revisar_sesion():
+    return render_template("login.html", titulo="Ingreso a usuarios")
 
   # apertura de archivos con formato json
   with open("data/ofertas.json", "r") as archivo:
