@@ -8,6 +8,7 @@ app.secret_key = "yWb2f@QOf77R9hhEX@sFYdt8cc7&LC2S"
 # 
 def conectar_base_de_datos():
   conn = sqlite3.connect('data/base_de_datos.sqlite')
+  conn.row_factory = sqlite3.Row
   return conn
 
 
@@ -45,7 +46,19 @@ def logout():
 @app.route('/login', methods=['GET'])
 def login_formulario():
   if revisar_sesion():
-    return render_template("dashboard.html", titulo="Usuarios autenticados")
+    try:
+      conn = conectar_base_de_datos()
+      cursor = conn.cursor()
+      cursor.execute("SELECT * FROM contactos")
+      datos = cursor.fetchall()
+      conn.close()
+    except:
+      datos = []
+      
+    return render_template("dashboard.html", 
+                           titulo="Usuarios autenticados",
+                           datos=datos
+                           )
   
   return render_template("login.html", titulo="Ingreso a usuarios")
 
@@ -119,6 +132,15 @@ def equipo():
 @app.route('/contacto', methods=['GET'])
 def contacto():
   return render_template("contacto.html", titulo="Contáctenos!!!")
+
+
+@app.route('/contacto/<id>', methods=['GET'])
+def ver_contacto(id):
+  conn = conectar_base_de_datos()
+  cursor = conn.cursor()
+  cursor.execute("SELECT * FROM contactos WHERE id=?", (id,))
+  contacto = cursor.fetchone()
+  return render_template("ver_contacto.html", titulo="Información", contacto=contacto)
 
 
 @app.route('/contacto', methods=['POST'])
