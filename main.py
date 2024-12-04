@@ -1,5 +1,6 @@
-from flask import Flask, render_template, request, session
+from flask import Flask, render_template, request, session, jsonify
 import json, os, sqlite3
+import pandas as pd
 
 app = Flask(__name__)
 app.secret_key = "yWb2f@QOf77R9hhEX@sFYdt8cc7&LC2S"
@@ -188,6 +189,18 @@ def guardar_contacto():
                          titulo="Pronto te contactaremos.",
                          validacion=validacion)
 
+
+@app.route("/informacion")
+def informacion():
+  
+  datos = pd.read_csv("data/contactos.csv")
+  #return datos.to_html()
+  #ciudades_unicas = datos["city"].unique().tolist()
+  #return jsonify({"ciudades": ciudades_unicas})
+  #ciudades_conteo = datos["city"].value_counts().to_dict()
+  #return jsonify(ciudades_conteo)
+  #return datos.to_json(orient="records")
+  return datos.columns.to_list()
 
 if __name__ == "__main__":
   app.run(debug=True, host='0.0.0.0', port=8080)
